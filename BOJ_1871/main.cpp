@@ -1,17 +1,21 @@
 #include <algorithm>
 #include <bit>
+#include <chrono>
 #include <cmath>
+#include <deque>
 #include <iomanip>
 #include <iostream>
 #include <limits>
 #include <map>
 #include <numeric>
 #include <queue>
+#include <ranges>
 #include <set>
 #include <sstream>
 #include <stack>
 #include <string>
 #include <tuple>
+#include <utility>
 #include <utility>
 #include <vector>
 
@@ -33,28 +37,28 @@ using vs = vector<string>;
 int n;
 string s;
 
-vi zx{ 26 * 26, 26, 1 };
+vi zx{26 * 26, 26, 1};
 
 int main() {
-	ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
+  ios::sync_with_stdio(false);
+  std::cin.tie(nullptr);
 
-	cin >> n;
-	while (0 < (n--)) {
-		cin >> s;
+  cin >> n;
+  while (0 < (n--)) {
+    cin >> s;
 
-		auto f = 0;
-		for (auto i = 0; i < 3; ++i) {
-			f += (s[i] - 'A') * zx[i];
-		}
+    auto f = 0;
+    for (auto i = 0; i < 3; ++i) {
+      f += (s[i] - 'A') * zx[i];
+    }
 
-		auto g = s.substr(4);
-		auto iss = istringstream{ g };
-		int h;
-		iss >> h;
+    auto g = s.substr(4);
+    auto iss = istringstream{g};
+    int h;
+    iss >> h;
 
-		cout << (abs(f - h) <= 100 ? "nice" : "not nice") << '\n';
-	}
+    cout << (abs(f - h) <= 100 ? "nice" : "not nice") << '\n';
+  }
 
-	return 0;
+  return 0;
 }
